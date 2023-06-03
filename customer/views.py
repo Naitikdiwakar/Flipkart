@@ -4,8 +4,6 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from customer.models import *
 from customer.serializers import *
-
-
 from rest_framework.response import Response
 
 
@@ -27,11 +25,11 @@ class GetcustomerView(APIView):
         ser.save()
         return Response({"msg":"Save successfully!!!!"}) 
     
-class GetcustomerView(APIView):
+class GetcustomerAddressView(APIView):
 
     def get(self,request):
         instance =CustomerAddress.objects.all()
-        serializer =GetcustomerSerializer
+        serializer =GetcustomerSerializer(instance,many=True)
         return Response(serializer.data)
     
 
