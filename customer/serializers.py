@@ -15,9 +15,9 @@ class GetcustomerAddressSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class GetcustomerDetailsAddreserializer(serializers.ModelSerializer):
+class GetcustomerDetailsAddresserializer(serializers.ModelSerializer):
     customer_address = GetcustomerAddressSerializer(many=True)
 
     class Meta: 
         model=Customers
-        fields=('first_name','last_name','mobile','addres','age','country','dob')
+        fields=('first_name','last_name','mobile','age','country','dob','customer_address')
